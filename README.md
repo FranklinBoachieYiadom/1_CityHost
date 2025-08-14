@@ -1,4 +1,4 @@
-# 1_city host - Mental Health Awareness NGO Website
+# 1 city_host - Mental Health Awareness NGO Website
 
 ## Overview
 This is a professional, responsive, and animated website for MindfulHaven, a fictional non-governmental organization (NGO) dedicated to promoting mental health awareness. The website is built using HTML5, Tailwind CSS, and vanilla JavaScript (ES6+), featuring a multi-page structure for better organization and user experience.

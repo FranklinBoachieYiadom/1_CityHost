@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (targetId === '#') return;
             
             const targetElement = document.querySelector(targetId);
+            const mobileMenu = document.getElementById('mobile-menu');
             
             if (targetElement) {
                 // Close mobile menu if open
@@ -253,5 +254,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
         });
+
+        // Initialize Lightbox if it exists on the page
+        if (typeof lightbox !== 'undefined') {
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true,
+                'albumLabel': 'Image %1 of %2'
+            });
+        }
     }
 });

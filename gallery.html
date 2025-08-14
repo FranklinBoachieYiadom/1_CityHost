@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - 1_city host</title>
+    <title>Gallery - 1 city_host</title>
     
     <!-- Tailwind CSS via CDN -->
     <!-- <script src="https://cdn.tailwindcss.com"></script>
@@ -55,6 +55,25 @@
             background-color: #4F46E5;
             color: white;
         }
+        /* Fix for lightbox control images not appearing with CDN */
+        .lb-nav a.lb-prev {
+            background: url(https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/images/prev.png) left 48% no-repeat;
+        }
+        .lb-nav a.lb-next {
+            background: url(https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/images/next.png) right 48% no-repeat;
+        }
+        .lb-data .lb-close {
+            background: url(https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/images/close.png) top right no-repeat;
+        }
+        .lightbox .lb-loader {
+            background: url(https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/images/loading.gif) no-repeat;
+        }
+        /* Position lightbox close button to the top right corner */
+        .lightbox .lb-close {
+            position: absolute;
+            top: -30px;
+            right: 10px;
+        }
     </style>
 </head>
 <body class="antialiased text-gray-800 bg-gray-100">
@@ -64,13 +83,14 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <a href="index.html" class="flex-shrink-0 flex items-center">
+                         <img src="./assets/images/logo.svg" alt="logo" class="h-8 w-8 text-primary-600 mr-2" viewBox="0 0 24 24" fill="none" >
                         <!-- Logo SVG -->
-                        <svg class="h-8 w-8 text-primary-600 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- <svg class="h-8 w-8 text-primary-600 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2L5 12L12 22L19 12L12 2Z" fill="currentColor" opacity="0.2"/>
                             <path d="M12 2L5 12L12 22L19 12L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <circle cx="12" cy="12" r="4" fill="currentColor" stroke="currentColor" stroke-width="1"/>
-                        </svg>
-                        <span class="text-xl font-bold text-primary-600">1_city host</span>
+                        </svg> -->
+                        <span class="text-xl font-bold text-primary-600">1 city_host</span>
                     </a>
                 </div>
                 <div class="hidden md:flex md:items-center md:space-x-6">
@@ -140,9 +160,9 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <!-- Gallery Item 1 -->
                 <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="events" data-aos="fade-up" data-aos-delay="100">
-                    <a href="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-lightbox="gallery" data-title="Community Awareness Event">
+                    <a href="./assets/images/img1.jpg" data-lightbox="gallery" data-title="Community Awareness Event">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Community Awareness Event" class="w-full h-full object-cover">
+                            <img src="./assets/images/img1.jpg" alt="Community Awareness Event" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
                                 <div class="p-4 w-full text-white">
                                     <h3 class="font-bold">Community Awareness Event</h3>
@@ -154,9 +174,9 @@
                 </div>
                 <!-- Gallery Item 2 -->
                 <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="workshops" data-aos="fade-up" data-aos-delay="200">
-                    <a href="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-lightbox="gallery" data-title="Mindfulness Workshop">
+                    <a href="./assets/images/img2.jpg" data-lightbox="gallery" data-title="Mindfulness Workshop">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Mindfulness Workshop" class="w-full h-full object-cover">
+                            <img src="./assets/images/img2.jpg" alt="Mindfulness Workshop" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
                                 <div class="p-4 w-full text-white">
                                     <h3 class="font-bold">Mindfulness Workshop</h3>
@@ -168,9 +188,9 @@
                 </div>
                 <!-- Gallery Item 3 -->
                 <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="community" data-aos="fade-up" data-aos-delay="300">
-                    <a href="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-lightbox="gallery" data-title="Support Group Meeting">
+                    <a href="./assets/images/img3.jpg" data-lightbox="gallery" data-title="Support Group Meeting">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Support Group Meeting" class="w-full h-full object-cover">
+                            <img src="./assets/images/img3.jpg" alt="Support Group Meeting" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
                                 <div class="p-4 w-full text-white">
                                     <h3 class="font-bold">Support Group Meeting</h3>
@@ -182,9 +202,9 @@
                 </div>
                 <!-- Gallery Item 4 -->
                 <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="facilities" data-aos="fade-up" data-aos-delay="400">
-                    <a href="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" data-lightbox="gallery" data-title="Counseling Room">
+                    <a href="./assets/images/img4.jpg" data-lightbox="gallery" data-title="Counseling Room">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="Counseling Room" class="w-full h-full object-cover">
+                            <img src="./assets/images/img4.jpg" alt="Counseling Room" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
                                 <div class="p-4 w-full text-white">
                                     <h3 class="font-bold">Counseling Room</h3>
@@ -196,9 +216,9 @@
                 </div>
                 <!-- Gallery Item 5 -->
                 <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="events" data-aos="fade-up" data-aos-delay="100">
-                    <a href="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-lightbox="gallery" data-title="Annual Fundraiser">
+                    <a href="./assets/images/img5.jpg" data-lightbox="gallery" data-title="Annual Fundraiser">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Annual Fundraiser" class="w-full h-full object-cover">
+                            <img src="./assets/images/img5.jpg" alt="Annual Fundraiser" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
                                 <div class="p-4 w-full text-white">
                                     <h3 class="font-bold">Annual Fundraiser</h3>
@@ -210,9 +230,9 @@
                 </div>
                 <!-- Gallery Item 6 -->
                 <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="workshops" data-aos="fade-up" data-aos-delay="200">
-                    <a href="https://images.unsplash.com/photo-1573497019236-61f323342eb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-lightbox="gallery" data-title="Stress Management Workshop">
+                    <a href="./assets/images/img6.jpg" data-lightbox="gallery" data-title="Stress Management Workshop">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1573497019236-61f323342eb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Stress Management Workshop" class="w-full h-full object-cover">
+                            <img src="./assets/images/img6.jpg" alt="Stress Management Workshop" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
                                 <div class="p-4 w-full text-white">
                                     <h3 class="font-bold">Stress Management Workshop</h3>
@@ -224,9 +244,65 @@
                 </div>
                 <!-- Gallery Item 7 -->
                 <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="community" data-aos="fade-up" data-aos-delay="300">
-                    <a href="https://images.unsplash.com/photo-1590650153855-d9e808231d41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-lightbox="gallery" data-title="Youth Mental Health Program">
+                    <a href="./assets/images/img7.jpg" data-lightbox="gallery" data-title="Youth Mental Health Program">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Youth Mental Health Program" class="w-full h-full object-cover">
+                            <img src="./assets/images/img7.jpg" alt="Youth Mental Health Program" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
+                                <div class="p-4 w-full text-white">
+                                    <h3 class="font-bold">Youth Mental Health Program</h3>
+                                    <p class="text-sm">October 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                                <!-- Gallery Item 7 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="community" data-aos="fade-up" data-aos-delay="300">
+                    <a href="./assets/images/img8.jpg" data-lightbox="gallery" data-title="Youth Mental Health Program">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="./assets/images/img8.jpg" alt="Youth Mental Health Program" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
+                                <div class="p-4 w-full text-white">
+                                    <h3 class="font-bold">Youth Mental Health Program</h3>
+                                    <p class="text-sm">October 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                                <!-- Gallery Item 7 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="community" data-aos="fade-up" data-aos-delay="300">
+                    <a href="./assets/images/img9.jpg" data-lightbox="gallery" data-title="Youth Mental Health Program">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="./assets/images/img9.jpg" alt="Youth Mental Health Program" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
+                                <div class="p-4 w-full text-white">
+                                    <h3 class="font-bold">Youth Mental Health Program</h3>
+                                    <p class="text-sm">October 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                                <!-- Gallery Item 7 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="community" data-aos="fade-up" data-aos-delay="300">
+                    <a href="./assets/images/img10.jpg" data-lightbox="gallery" data-title="Youth Mental Health Program">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="./assets/images/img10.jpg" alt="Youth Mental Health Program" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
+                                <div class="p-4 w-full text-white">
+                                    <h3 class="font-bold">Youth Mental Health Program</h3>
+                                    <p class="text-sm">October 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                                <!-- Gallery Item 7 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="community" data-aos="fade-up" data-aos-delay="300">
+                    <a href="./assets/images/img11.jpg" data-lightbox="gallery" data-title="Youth Mental Health Program">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="./assets/images/img11.jpg" alt="Youth Mental Health Program" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
                                 <div class="p-4 w-full text-white">
                                     <h3 class="font-bold">Youth Mental Health Program</h3>
@@ -238,9 +314,9 @@
                 </div>
                 <!-- Gallery Item 8 -->
                 <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="facilities" data-aos="fade-up" data-aos-delay="400">
-                    <a href="https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-lightbox="gallery" data-title="Resource Library">
+                    <a href="./assets/images/img12.jpg" data-lightbox="gallery" data-title="Resource Library">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Resource Library" class="w-full h-full object-cover">
+                            <img src="./assets/images/img12.jpg" alt="Resource Library" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
                                 <div class="p-4 w-full text-white">
                                     <h3 class="font-bold">Resource Library</h3>
@@ -270,51 +346,11 @@
 
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- jQuery (required for Lightbox) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Lightbox JS for gallery images -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <!-- Main JavaScript -->
     <script src="main.js"></script>
-    <!-- Gallery Filter Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize AOS
-            AOS.init({
-                duration: 800,
-                easing: 'ease-in-out',
-                once: true
-            });
-
-            // Initialize Lightbox
-            lightbox.option({
-                'resizeDuration': 200,
-                'wrapAround': true,
-                'albumLabel': 'Image %1 of %2'
-            });
-
-            // Gallery filtering
-            const categoryButtons = document.querySelectorAll('.category-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-
-            categoryButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    categoryButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    this.classList.add('active');
-
-                    const category = this.getAttribute('data-category');
-
-                    // Show/hide gallery items based on category
-                    galleryItems.forEach(item => {
-                        if (category === 'all' || item.getAttribute('data-category') === category) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 </body>
 </html>
