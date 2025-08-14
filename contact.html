@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - 1_city host</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="tailwind.config.js"></script> -->
+
+    <link href="dist/output.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- AOS Animation Library CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800 bg-gray-100">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <!-- Logo SVG -->
+                        <svg class="h-8 w-8 text-primary-600 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L5 12L12 22L19 12L12 2Z" fill="currentColor" opacity="0.2"/>
+                            <path d="M12 2L5 12L12 22L19 12L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="4" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+                        </svg>
+                        <span class="text-xl font-bold text-primary-600">1_city host</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex md:items-center md:space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">About Us</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Gallery</a>
+                    <a href="donate.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Donate</a>
+                    <a href="volunteer.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Volunteer</a>
+                    <a href="contact.html" class="bg-primary-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700 transition-all">Contact Us</a>
+                </div>
+                <div class="flex md:hidden">
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icon when menu is closed -->
+                        <svg id="menu-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Icon when menu is open -->
+                        <svg id="close-icon" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu, show/hide based on menu state -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">About Us</a>
+                <a href="gallery.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Gallery</a>
+                <a href="donate.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Donate</a>
+                <a href="volunteer.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Volunteer</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="pt-28 md:pt-24 pb-16 bg-primary-600 text-white bg-pattern">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl font-bold mb-4">Contact Us</h1>
+                <div class="w-24 h-1 bg-white mx-auto mb-6"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Information Section -->
+    <section class="py-16 sm:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Contact Info -->
+                <div class="lg:col-span-1">
+                    <div class="bg-gray-50 rounded-lg shadow-md p-8" data-aos="fade-up">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Get In Touch</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-primary-100 rounded-full p-3">
+                                        <i class="fas fa-map-marker-alt text-primary-600 text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900">Our Location</h3>
+                                    <p class="mt-1 text-gray-600">123 Wellness Street<br>Mindful City, MC 12345</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-primary-100 rounded-full p-3">
+                                        <i class="fas fa-phone-alt text-primary-600 text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900">Phone</h3>
+                                    <p class="mt-1 text-gray-600">
+                                        <a href="tel:+11234567890" class="hover:text-primary-600 transition-all">(123) 456-7890</a><br>
+                                        <span class="text-sm text-primary-600 font-medium">Crisis Helpline: (800) 555-HELP</span>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-primary-100 rounded-full p-3">
+                                        <i class="fas fa-envelope text-primary-600 text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900">Email</h3>
+                                    <p class="mt-1 text-gray-600">
+                                        <a href="mailto:info@mindfullhaven.org" class="hover:text-primary-600 transition-all">info@mindfullhaven.org</a><br>
+                                        <a href="mailto:support@mindfullhaven.org" class="hover:text-primary-600 transition-all">support@mindfullhaven.org</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-primary-100 rounded-full p-3">
+                                        <i class="fas fa-clock text-primary-600 text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900">Office Hours</h3>
+                                    <p class="mt-1 text-gray-600">
+                                        Monday - Friday: 9am - 5pm<br>
+                                        Saturday: 10am - 2pm<br>
+                                        Sunday: Closed
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h3 class="text-lg font-medium text-gray-900 mb-4">Follow Us</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-primary-100 hover:bg-primary-200 text-primary-600 p-3 rounded-full transition-all">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-primary-100 hover:bg-primary-200 text-primary-600 p-3 rounded-full transition-all">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-primary-100 hover:bg-primary-200 text-primary-600 p-3 rounded-full transition-all">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-primary-100 hover:bg-primary-200 text-primary-600 p-3 rounded-full transition-all">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-primary-100 hover:bg-primary-200 text-primary-600 p-3 rounded-full transition-all">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-lg shadow-md p-8" data-aos="fade-up" data-aos-delay="100">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+                        
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-primary-600 focus:border-primary-600 focus:outline-none transition-all" placeholder="John Doe" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-primary-600 focus:border-primary-600 focus:outline-none transition-all" placeholder="john@example.com" required>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number (Optional)</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-primary-600 focus:border-primary-600 focus:outline-none transition-all" placeholder="(123) 456-7890">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                                <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-primary-600 focus:border-primary-600 focus:outline-none transition-all" placeholder="How can we help you?" required>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-primary-600 focus:border-primary-600 focus:outline-none transition-all" placeholder="Your message here..." required></textarea>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="privacy" name="privacy" type="checkbox" class="h-4 w-4 text-primary-600 border-gray-300 rounded focus:ring-primary-500" required>
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="privacy" class="font-medium text-gray-700">I agree to the <a href="#" class="text-primary-600 hover:text-primary-700">privacy policy</a></label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <button type="submit" class="w-full bg-primary-600 text-white px-6 py-3 rounded-md font-medium hover:bg-primary-700 transition-all">
+                                    Send Message
+                                </button>
+                            </div>
+                            
+                            <div id="form-message" class="hidden"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Placeholder for the footer -->
+    <footer class="bg-gray-900 text-white py-12" id="footer">  </footer>
+
+    <script>
+      // Dynamically load the footer Section
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading footer:', error));
+    </script>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer - 1_city host</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="tailwind.config.js"></script> -->
+
+    <link href="dist/output.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- AOS Animation Library CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800 bg-gray-100">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <!-- Logo SVG -->
+                        <svg class="h-8 w-8 text-primary-600 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L5 12L12 22L19 12L12 2Z" fill="currentColor" opacity="0.2"/>
+                            <path d="M12 2L5 12L12 22L19 12L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="4" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+                        </svg>
+                        <span class="text-xl font-bold text-primary-600">1_city host</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex md:items-center md:space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">About Us</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Gallery</a>
+                    <a href="donate.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Donate</a>
+                    <a href="volunteer.html" class="text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Volunteer</a>
+                    <a href="contact.html" class="bg-primary-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700 transition-all">Contact Us</a>
+                </div>
+                <div class="flex md:hidden">
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icon when menu is closed -->
+                        <svg id="menu-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Icon when menu is open -->
+                        <svg id="close-icon" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu, show/hide based on menu state -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">About Us</a>
+                <a href="gallery.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Gallery</a>
+                <a href="donate.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Donate</a>
+                <a href="volunteer.html" class="block px-3 py-2 rounded-md text-base font-medium text-primary-600 hover:bg-gray-50 transition-all">Volunteer</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="pt-28 md:pt-24 pb-16 bg-primary-600 text-white bg-pattern">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl font-bold mb-4">Volunteer & Join Us</h1>
+                <div class="w-24 h-1 bg-white mx-auto mb-6"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Volunteer Section -->
+    <section class="py-16 sm:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Make a Difference</h2>
+                <div class="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Join our community of volunteers and supporters who are passionate about mental health awareness and advocacy.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-2">
+                <!-- Volunteer Info -->
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Why Volunteer With Us?</h3>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 mr-4">
+                                <i class="fas fa-heart text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Make an Impact</h4>
+                                <p class="text-gray-600">Your time and skills directly contribute to improving mental health in our community.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 mr-4">
+                                <i class="fas fa-users text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Build Community</h4>
+                                <p class="text-gray-600">Connect with like-minded individuals who share your passion for mental health advocacy.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 mr-4">
+                                <i class="fas fa-brain text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Learn & Grow</h4>
+                                <p class="text-gray-600">Gain valuable skills and knowledge about mental health through training and hands-on experience.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 mr-4">
+                                <i class="fas fa-certificate text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Recognition</h4>
+                                <p class="text-gray-600">We value our volunteers and recognize their contributions through various appreciation programs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8  bg-red-50 border-l-4 border-yellow-500 p-6 rounded-lg shadow-md " data-aos="fade-up">
+                        <div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">
+                                <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mr-4"></i>
+                                Volunteer Requirements
+                            </h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Must be 18 years or older</li>
+                                <li>Commitment of at least 4 hours per month</li>
+                                <li>Completion of orientation and training</li>
+                                <li>Passion for mental health advocacy</li>
+                                <li>Respect for confidentiality and privacy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Volunteer Form -->
+                <div class="bg-white rounded-lg shadow-xl p-8" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Become a Volunteer</h3>
+                    <p class="text-gray-600 mb-6">Fill out the form below to express your interest in volunteering. Our team will contact you with more information about opportunities that match your skills and interests.</p>
+                    
+                    <form id="volunteer-form" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                                <input type="text" id="first-name" name="first-name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-primary-600 focus:outline-none transition-all">
+                            </div>
+                            <div>
+                                <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                                <input type="text" id="last-name" name="last-name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-primary-600 focus:outline-none transition-all">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-primary-600 focus:outline-none transition-all">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-primary-600 focus:outline-none transition-all">
+                        </div>
+                        <div>
+                            <label for="interests" class="block text-sm font-medium text-gray-700 mb-1">Areas of Interest</label>
+                            <select id="interests" name="interests" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-primary-600 focus:outline-none transition-all">
+                                <option value="">Select an option</option>
+                                <option value="community-outreach">Community Outreach</option>
+                                <option value="event-planning">Event Planning</option>
+                                <option value="fundraising">Fundraising</option>
+                                <option value="peer-support">Peer Support</option>
+                                <option value="education">Education & Awareness</option>
+                                <option value="administrative">Administrative Support</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Why are you interested in volunteering?</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-primary-600 focus:outline-none transition-all"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-primary-600 text-white px-6 py-3 rounded-md font-medium hover:bg-primary-700 transition-all">
+                                Submit Application
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Placeholder for the footer -->
+    <footer class="bg-gray-900 text-white py-12" id="footer">  </footer>
+
+    <script>
+      // Dynamically load the footer Section
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading datalist:', error));
+    </script>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>

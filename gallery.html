@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - 1_city host</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script>
+  
+    <script src="tailwind.config.js"></script> -->
+
+    <link href="dist/output.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- AOS Animation Library CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Lightbox CSS for gallery images -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .gallery-item {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .gallery-item img {
+            transition: all 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-categories .active {
+            background-color: #4F46E5;
+            color: white;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800 bg-gray-100">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <!-- Logo SVG -->
+                        <svg class="h-8 w-8 text-primary-600 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L5 12L12 22L19 12L12 2Z" fill="currentColor" opacity="0.2"/>
+                            <path d="M12 2L5 12L12 22L19 12L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="4" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+                        </svg>
+                        <span class="text-xl font-bold text-primary-600">1_city host</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex md:items-center md:space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">About Us</a>
+                    <a href="gallery.html" class="text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Gallery</a>
+                    <a href="donate.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Donate</a>
+                    <a href="volunteer.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Volunteer</a>
+                    <a href="contact.html" class="bg-primary-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700 transition-all">Contact Us</a>
+                </div>
+                <div class="flex md:hidden">
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icon when menu is closed -->
+                        <svg id="menu-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Icon when menu is open -->
+                        <svg id="close-icon" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu, show/hide based on menu state -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">About Us</a>
+                <a href="gallery.html" class="block px-3 py-2 rounded-md text-base font-medium text-primary-600 hover:bg-gray-50 transition-all">Gallery</a>
+                <a href="donate.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Donate</a>
+                <a href="volunteer.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Volunteer</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="pt-28 md:pt-24 pb-16 bg-primary-600 text-white bg-pattern">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl font-bold mb-4">Our Gallery</h1>
+                <div class="w-24 h-1 bg-white mx-auto mb-6"></div>
+                <p class="text-xl">Explore moments from our events, workshops, and community activities</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Gallery Categories -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="gallery-categories flex flex-wrap justify-center gap-2 mb-8" data-aos="fade-up">
+                <button class="category-btn active px-4 py-2 rounded-full bg-gray-200 text-gray-800 text-sm font-medium hover:bg-primary-600 hover:text-white transition-all" data-category="all">All</button>
+                <button class="category-btn px-4 py-2 rounded-full bg-gray-200 text-gray-800 text-sm font-medium hover:bg-primary-600 hover:text-white transition-all" data-category="events">Events</button>
+                <button class="category-btn px-4 py-2 rounded-full bg-gray-200 text-gray-800 text-sm font-medium hover:bg-primary-600 hover:text-white transition-all" data-category="workshops">Workshops</button>
+                <button class="category-btn px-4 py-2 rounded-full bg-gray-200 text-gray-800 text-sm font-medium hover:bg-primary-600 hover:text-white transition-all" data-category="community">Community</button>
+                <button class="category-btn px-4 py-2 rounded-full bg-gray-200 text-gray-800 text-sm font-medium hover:bg-primary-600 hover:text-white transition-all" data-category="facilities">Facilities</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="events" data-aos="fade-up" data-aos-delay="100">
+                    <a href="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-lightbox="gallery" data-title="Community Awareness Event">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Community Awareness Event" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
+                                <div class="p-4 w-full text-white">
+                                    <h3 class="font-bold">Community Awareness Event</h3>
+                                    <p class="text-sm">May 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="workshops" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-lightbox="gallery" data-title="Mindfulness Workshop">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Mindfulness Workshop" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
+                                <div class="p-4 w-full text-white">
+                                    <h3 class="font-bold">Mindfulness Workshop</h3>
+                                    <p class="text-sm">June 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="community" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-lightbox="gallery" data-title="Support Group Meeting">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Support Group Meeting" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
+                                <div class="p-4 w-full text-white">
+                                    <h3 class="font-bold">Support Group Meeting</h3>
+                                    <p class="text-sm">July 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="facilities" data-aos="fade-up" data-aos-delay="400">
+                    <a href="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" data-lightbox="gallery" data-title="Counseling Room">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="Counseling Room" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
+                                <div class="p-4 w-full text-white">
+                                    <h3 class="font-bold">Counseling Room</h3>
+                                    <p class="text-sm">Our Facility</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="events" data-aos="fade-up" data-aos-delay="100">
+                    <a href="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-lightbox="gallery" data-title="Annual Fundraiser">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Annual Fundraiser" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
+                                <div class="p-4 w-full text-white">
+                                    <h3 class="font-bold">Annual Fundraiser</h3>
+                                    <p class="text-sm">August 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="workshops" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://images.unsplash.com/photo-1573497019236-61f323342eb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-lightbox="gallery" data-title="Stress Management Workshop">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1573497019236-61f323342eb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Stress Management Workshop" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
+                                <div class="p-4 w-full text-white">
+                                    <h3 class="font-bold">Stress Management Workshop</h3>
+                                    <p class="text-sm">September 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="community" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://images.unsplash.com/photo-1590650153855-d9e808231d41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-lightbox="gallery" data-title="Youth Mental Health Program">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Youth Mental Health Program" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
+                                <div class="p-4 w-full text-white">
+                                    <h3 class="font-bold">Youth Mental Health Program</h3>
+                                    <p class="text-sm">October 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="facilities" data-aos="fade-up" data-aos-delay="400">
+                    <a href="https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-lightbox="gallery" data-title="Resource Library">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Resource Library" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end">
+                                <div class="p-4 w-full text-white">
+                                    <h3 class="font-bold">Resource Library</h3>
+                                    <p class="text-sm">Our Facility</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Placeholder for the footer -->
+    <footer class="bg-gray-900 text-white py-12" id="footer">  </footer>
+
+    <script>
+      // Dynamically load the footer Section
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading footer:', error));
+    </script>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Lightbox JS for gallery images -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+    <!-- Gallery Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+
+            // Initialize Lightbox
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true,
+                'albumLabel': 'Image %1 of %2'
+            });
+
+            // Gallery filtering
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const category = this.getAttribute('data-category');
+
+                    // Show/hide gallery items based on category
+                    galleryItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

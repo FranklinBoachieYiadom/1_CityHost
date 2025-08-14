@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_city host - Mental Health Awareness NGO</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+   
+    <!-- <script src="tailwind.config.js"></script> -->
+
+    <link href="dist/output.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- AOS Animation Library CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Swiper JS for Carousel -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-slide {
+            text-align: center;
+            background-position: center;
+            background-size: cover;
+        }
+        .hero-swiper .swiper-slide img {
+            transition: transform 0.3s ease;
+        }
+        .hero-swiper .swiper-slide-active img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800 bg-gray-100">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <!-- Logo SVG -->
+                        <svg class="h-8 w-8 text-primary-600 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L5 12L12 22L19 12L12 2Z" fill="currentColor" opacity="0.2"/>
+                            <path d="M12 2L5 12L12 22L19 12L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="4" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+                        </svg>
+                        <span class="text-xl font-bold text-primary-600">1_city host</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex md:items-center md:space-x-6">
+                    <a href="index.html" class="text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">About Us</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Gallery</a>
+                    <a href="donate.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Donate</a>
+                    <a href="volunteer.html" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-all">Volunteer</a>
+                    <a href="contact.html" class="bg-primary-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700 transition-all">Contact Us</a>
+                </div>
+                <div class="flex md:hidden">
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icon when menu is closed -->
+                        <svg id="menu-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Icon when menu is open -->
+                        <svg id="close-icon" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu, show/hide based on menu state -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-primary-600 hover:bg-gray-50 transition-all">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">About Us</a>
+                <a href="gallery.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Gallery</a>
+                <a href="donate.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Donate</a>
+                <a href="volunteer.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Volunteer</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50 overflow-hidden pt-16 md:pt-0">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <div class="absolute inset-0 bg-pattern"></div>
+        </div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center justify-between">
+                <div class="w-full lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0" data-aos="fade-right">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                        Empowering Minds, <span class="text-primary-600">Transforming Lives</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0">
+                        We're dedicated to promoting mental health awareness, reducing stigma, and providing support for those in need.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="get-help.html" class="px-8 py-4 bg-primary-600 text-white rounded-md font-medium hover:bg-primary-700 transition-all shadow-md">
+                            Get Help Now
+                        </a>
+                        <a href="#programs" class="px-8 py-4 bg-white text-primary-600 rounded-md font-medium hover:bg-gray-50 transition-all shadow-md">
+                            Our Programs
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <div class="relative">
+                        <div class="absolute -top-6 -left-6 w-24 h-24 bg-primary-200 rounded-full opacity-70 animate-bounce-slow"></div>
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary-200 rounded-full opacity-70"></div>
+                        
+                        <!-- Swiper Carousel -->
+                        <div class="swiper-container hero-swiper rounded-lg shadow-xl overflow-hidden">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Mental Health Support" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Community Support" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Therapy Session" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Support Group" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up">
+                <div class="bg-white bg-opacity-90 backdrop-filter backdrop-blur-sm rounded-lg p-6 shadow-md transform transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
+                    <div class="text-primary-600 mb-4">
+                        <i class="fas fa-brain text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Mental Health Education</h3>
+                    <p class="text-gray-600">We provide resources and workshops to help understand mental health better.</p>
+                </div>
+                <div class="bg-white bg-opacity-90 backdrop-filter backdrop-blur-sm rounded-lg p-6 shadow-md transform transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
+                    <div class="text-primary-600 mb-4">
+                        <i class="fas fa-hands-helping text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Support Programs</h3>
+                    <p class="text-gray-600">Access to support groups, therapy resources, and crisis intervention services.</p>
+                </div>
+                <div class="bg-white bg-opacity-90 backdrop-filter backdrop-blur-sm rounded-lg p-6 shadow-md transform transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
+                    <div class="text-primary-600 mb-4">
+                        <i class="fas fa-users text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Community Outreach</h3>
+                    <p class="text-gray-600">Engaging with communities to reduce stigma and promote mental wellbeing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-16 sm:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Mental Health Programs</h2>
+                <div class="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">We offer a variety of programs designed to support mental health and wellbeing in our community.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Program Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Community Outreach" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Community Outreach</h3>
+                        <p class="text-gray-600 mb-4">We engage with local communities through workshops, events, and awareness campaigns to promote mental health education.</p>
+                        <a href="#" class="inline-flex items-center text-primary-600 hover:text-primary-700 transition-all">
+                            Learn More
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Program Card 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Therapy Access" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Therapy Access</h3>
+                        <p class="text-gray-600 mb-4">We connect individuals with affordable therapy options and provide financial assistance for those who cannot afford mental health services.</p>
+                        <a href="#" class="inline-flex items-center text-primary-600 hover:text-primary-700 transition-all">
+                            Learn More
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Program Card 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Workshops & Training" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Workshops & Training</h3>
+                        <p class="text-gray-600 mb-4">We offer workshops on stress management, mindfulness, and mental health first aid to equip individuals with practical skills.</p>
+                        <a href="#" class="inline-flex items-center text-primary-600 hover:text-primary-700 transition-all">
+                            Learn More
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Program Card 4 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1573497019236-61f323342eb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Support Groups" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Support Groups</h3>
+                        <p class="text-gray-600 mb-4">We facilitate support groups for various mental health conditions, providing a safe space for sharing experiences and finding community.</p>
+                        <a href="#" class="inline-flex items-center text-primary-600 hover:text-primary-700 transition-all">
+                            Learn More
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Program Card 5 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="500">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Educational Resources" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Educational Resources</h3>
+                        <p class="text-gray-600 mb-4">We develop and distribute educational materials about mental health, coping strategies, and available resources.</p>
+                        <a href="#" class="inline-flex items-center text-primary-600 hover:text-primary-700 transition-all">
+                            Learn More
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Program Card 6 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="600">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Crisis Intervention" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Crisis Intervention</h3>
+                        <p class="text-gray-600 mb-4">We provide immediate support and resources for individuals experiencing mental health crises, connecting them with appropriate services.</p>
+                        <a href="#" class="inline-flex items-center text-primary-600 hover:text-primary-700 transition-all">
+                            Learn More
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Details Section -->
+    <section class="py-16 sm:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How Our Programs Work</h2>
+                <div class="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our approach is centered on accessibility, compassion, and evidence-based practices.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Program Process" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div data-aos="fade-left">
+                    <div class="space-y-8">
+                        <div class="flex">
+                            <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 mr-4">
+                                <span class="text-xl font-bold">1</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Assessment</h3>
+                                <p class="text-gray-600">We begin with a thorough assessment to understand individual needs and goals, ensuring our support is tailored appropriately.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 mr-4">
+                                <span class="text-xl font-bold">2</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Personalized Plan</h3>
+                                <p class="text-gray-600">Based on the assessment, we develop a personalized plan that may include individual therapy, group support, educational resources, or community activities.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 mr-4">
+                                <span class="text-xl font-bold">3</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Implementation</h3>
+                                <p class="text-gray-600">We connect individuals with appropriate resources and services, providing guidance and support throughout the process.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 mr-4">
+                                <span class="text-xl font-bold">4</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Follow-up & Adjustment</h3>
+                                <p class="text-gray-600">Regular check-ins allow us to monitor progress, make adjustments as needed, and ensure continued support for long-term wellbeing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <!-- Placeholder for the footer -->
+    <footer class="bg-gray-900 text-white py-12" id="footer">  </footer>
+
+    <script>
+      // Dynamically load the footer Section
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading footer:', error));
+    </script>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>
