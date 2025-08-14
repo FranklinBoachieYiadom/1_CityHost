@@ -50,6 +50,14 @@
         .hero-swiper .swiper-slide-active img {
             transform: scale(1.05);
         }
+        .video-container {
+            height: 250px; /* Base height for mobile */
+        }
+        @media (min-width: 1024px) { /* Tailwind's lg breakpoint */
+            .video-container {
+                height: 400px; /* Taller height for large screens */
+            }
+        }
     </style>
 </head>
 <body class="antialiased text-gray-800 bg-gray-100">
@@ -120,12 +128,12 @@
                         We're dedicated to promoting mental health awareness, reducing stigma, and providing support for those in need.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="get-help.html" class="px-8 py-4 bg-primary-600 text-white rounded-md font-medium hover:bg-primary-700 transition-all shadow-md">
-                            Get Help Now
-                        </a>
-                        <a href="#programs" class="px-8 py-4 bg-white text-primary-600 rounded-md font-medium hover:bg-gray-50 transition-all shadow-md">
+                        <a href="#programs" class="px-8 py-4 bg-primary-600 text-white rounded-md font-medium hover:bg-primary-700 transition-all shadow-md">
                             Our Programs
                         </a>
+                        <!-- <a href="#programs" class="px-8 py-4 bg-white text-primary-600 rounded-md font-medium hover:bg-gray-50 transition-all shadow-md">
+                            Our Programs
+                        </a> -->
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2" data-aos="fade-left">
@@ -281,14 +289,21 @@
     <section class="py-16 sm:py-24 bg-gray-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How Our Programs Work</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How Our Program Works</h2>
                 <div class="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our approach is centered on accessibility, compassion, and evidence-based practices.</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Program Process" class="rounded-lg shadow-xl w-full">
+                    <div class="w-full rounded-lg overflow-hidden shadow-xl video-container">
+                        <iframe 
+                            src="https://drive.google.com/file/d/1rXTprk8n7Djj2sJO7e11mEUvDZ5dgCgQ/preview" 
+                            class="w-full h-full"
+                            allow="autoplay"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
                 </div>
                 <div data-aos="fade-left">
                     <div class="space-y-8">
@@ -337,7 +352,7 @@
 
     <!-- Footer -->
     <!-- Placeholder for the footer -->
-    <footer class="bg-gray-900 text-white py-12" id="footer">  </footer>
+    <footer class=" bg-gray-900 text-white py-12" id="footer">  </footer>
 
     <script>
       // Dynamically load the footer Section
