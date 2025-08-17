@@ -62,6 +62,42 @@
                 height: 400px; /* Taller height for large screens */
             }
         }
+        @keyframes shine-animation {
+            0% {
+                left: -150%;
+            }
+            50% {
+                left: 150%;
+            }
+            100% {
+                left: 150%;
+            }
+        }
+        .shine-effect {
+            position: relative; /* This is necessary for the pseudo-element positioning */
+            overflow: hidden; /* Important to contain the shine */
+        }
+        /* The shine pseudo-element */
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            transform: skewX(-25deg); /* Angle the shine */
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+            animation-name: shine-animation;
+            animation-duration: 4s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        /* Stagger the animation for each card */
+        [data-aos-delay="200"].shine-effect::after {
+            animation-delay: 0.5s;
+        }
+        [data-aos-delay="300"].shine-effect::after {
+            animation-delay: 1s;
+        }
     </style>
 </head>
 <body class="antialiased text-gray-800 bg-gray-100">
@@ -120,11 +156,11 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50 overflow-hidden pt-16 md:pt-0">
+    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-600 overflow-hidden pt-16 md:pt-0">
         <div class="absolute inset-0 z-0 opacity-20">
             <div class="absolute inset-0 bg-pattern"></div>
         </div>
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-2">
             <div class="flex flex-col lg:flex-row items-center justify-between">
                 <div class="w-full lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0" data-aos="fade-right">
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
@@ -170,7 +206,7 @@
             </div>
             <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up">
                 <div class="bg-white bg-opacity-90 backdrop-filter backdrop-blur-sm rounded-lg p-6 shadow-md transform transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
-                    <div class="text-primary-600 mb-4">
+                    <div class="text-secondary-600 mb-4">
                         <i class="fas fa-brain text-4xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Mental Health Education</h3>
@@ -184,12 +220,67 @@
                     <p class="text-gray-600">Access to support groups, therapy resources, and crisis intervention services.</p>
                 </div>
                 <div class="bg-white bg-opacity-90 backdrop-filter backdrop-blur-sm rounded-lg p-6 shadow-md transform transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
-                    <div class="text-primary-600 mb-4">
+                    <div class="text-tertiary-400 mb-4">
                         <i class="fas fa-users text-4xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Community Outreach</h3>
                     <p class="text-gray-600">Engaging with communities to reduce stigma and promote mental wellbeing.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Upcoming Programs Section -->
+    <section id="upcoming-programs" class="py-16 sm:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Upcoming Programs & Events</h2>
+                <div class="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Join us for our upcoming events and workshops. Get involved and help us make a difference.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event Card 1 -->
+                <div class="relative shine-effect bg-blue-950 rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6">
+                        <div class="flex items-center text-white mb-4">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>October 25, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Mindfulness & Stress Reduction Workshop</h3>
+                        <p class="text-white mb-4">Learn practical techniques to manage stress and cultivate mindfulness in your daily life.</p>
+                        <a href="#" class="font-medium text-primary-300 hover:text-primary-700 transition-all">Register Now <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <!-- Event Card 2 -->
+                <div class="relative shine-effect bg-blue-950 rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6">
+                        <div class="flex items-center text-white mb-4">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>November 12, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Youth Mental Health First Aid</h3>
+                        <p class="text-white mb-4">A certification course to help adults who work with youth respond to mental health challenges.</p>
+                        <a href="#" class="font-medium text-primary-300 hover:text-primary-700 transition-all">Learn More <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <!-- Event Card 3 -->
+                <div class="relative shine-effect bg-blue-950 rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-6">
+                        <div class="flex items-center text-white mb-4">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>December 5, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Annual Charity Gala</h3>
+                        <p class="text-white mb-4">Join us for an evening of inspiration and support for our mental health initiatives.</p>
+                        <a href="#" class="font-medium text-primary-300 hover:text-primary-700 transition-all">Get Tickets <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="gallery.html" class="px-8 py-3 bg-primary-600 text-white rounded-md font-medium hover:bg-primary-700 transition-all shadow-md">
+                    View Past Events
+                </a>
             </div>
         </div>
     </section>
