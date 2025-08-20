@@ -24,33 +24,30 @@ document.addEventListener('DOMContentLoaded', function() {
             },
         });
     }
-    // Wait a bit more for DOM to be fully ready
-    setTimeout(function() {
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const closeIcon = document.getElementById('close-icon');
 
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                mobileMenu.classList.toggle('hidden');
-                
-                // Toggle between hamburger and X icon if they exist
-                if (menuIcon && closeIcon) {
-                    if (mobileMenu.classList.contains('hidden')) {
-                        menuIcon.classList.remove('hidden');
-                        closeIcon.classList.add('hidden');
-                    } else {
-                        menuIcon.classList.add('hidden');
-                        closeIcon.classList.remove('hidden');
-                    }
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            mobileMenu.classList.toggle('hidden');
+            
+            // Toggle between hamburger and X icon if they exist
+            if (menuIcon && closeIcon) {
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                } else {
+                    menuIcon.classList.add('hidden');
+                    closeIcon.classList.remove('hidden');
                 }
-            });
-        }
-    }, 100); // End of setTimeout
-
+            }
+        });
+    }
 
     // Smooth scrolling for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
