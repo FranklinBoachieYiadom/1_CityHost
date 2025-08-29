@@ -90,49 +90,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Testimonial slider
-    const testimonialTrack = document.querySelector('.testimonial-track');
-    const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-    const prevButton = document.querySelector('.testimonial-prev');
-    const nextButton = document.querySelector('.testimonial-next');
-    
-    if (testimonialTrack && testimonialSlides.length > 0 && prevButton && nextButton) {
-        let currentIndex = 0;
-        const slideWidth = 100; // percentage
-        const totalSlides = testimonialSlides.length;
-        
-        // Set initial position
-        updateSliderPosition();
-        
-        // Handle window resize
-        window.addEventListener('resize', updateSliderPosition);
-        
-        // Previous button click
-        prevButton.addEventListener('click', function() {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : 0;
-            updateSliderPosition();
+    // Show/Hide Events Videos Section on Button Click and toggle button text
+    const viewEventsVideosBtn = document.getElementById('view-events-videos-btn');
+    const eventsVideosSection = document.getElementById('events-videos-section');
+
+    if (viewEventsVideosBtn && eventsVideosSection) {
+        viewEventsVideosBtn.addEventListener('click', function() {
+            const isHidden = eventsVideosSection.classList.contains('hidden');
+            if (isHidden) {
+                eventsVideosSection.classList.remove('hidden');
+                viewEventsVideosBtn.textContent = 'Show less';
+            } else {
+                eventsVideosSection.classList.add('hidden');
+                viewEventsVideosBtn.textContent = 'View Events Videos';
+            }
         });
-        
-        // Next button click
-        nextButton.addEventListener('click', function() {
-            const maxIndex = window.innerWidth >= 1024 ? totalSlides - 3 : totalSlides - 1;
-            currentIndex = (currentIndex < maxIndex) ? currentIndex + 1 : maxIndex;
-            updateSliderPosition();
-        });
-        
-        function updateSliderPosition() {
-            const slideSize = window.innerWidth >= 1024 ? 33.33 : 100; // 3 slides on desktop, 1 on mobile
-            const offset = -currentIndex * slideSize;
-            testimonialTrack.style.transform = `translateX(${offset}%)`;
-            
-            // Update button states
-            prevButton.disabled = currentIndex === 0;
-            prevButton.classList.toggle('opacity-50', currentIndex === 0);
-            
-            const maxIndex = window.innerWidth >= 1024 ? totalSlides - 3 : totalSlides - 1;
-            nextButton.disabled = currentIndex === maxIndex;
-            nextButton.classList.toggle('opacity-50', currentIndex === maxIndex);
-        }
     }
 
     // Form validation

@@ -9,8 +9,6 @@
     <!-- Tailwind CSS via CDN -->
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
-    <!-- <script src="tailwind.config.js"></script> -->
-
     <link href="dist/output.css" rel="stylesheet" />
 
     <!-- Google Fonts -->
@@ -176,9 +174,6 @@
                         <a href="#programs" class="px-8 py-4 bg-primary-600 text-white rounded-md font-medium hover:bg-primary-700 transition-all shadow-md">
                             Our Programs
                         </a>
-                        <!-- <a href="#programs" class="px-8 py-4 bg-white text-primary-600 rounded-md font-medium hover:bg-gray-50 transition-all shadow-md">
-                            Our Programs
-                        </a> -->
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2" data-aos="fade-left">
@@ -233,9 +228,9 @@
         </div>
     </section>
 
-
+  <!-- JUST NOTE THAT THIS SECTION  HAS BEEN HIDDEN  (safely remove hidden)-->
     <!-- Upcoming Programs Section -->
-    <section id="upcoming-programs" class="py-16 sm:py-24 bg-gray-50 overflow-hidden">
+    <section id="upcoming-programs" class="hidden py-16 sm:py-24 bg-gray-50 overflow-hidden">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Upcoming Programs & Events</h2>
@@ -245,6 +240,9 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Event Card 1 -->
                 <div class="relative shine-effect bg-blue-950 rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./assets/images/img5.jpg" alt="Community Outreach" class="w-full h-full object-cover">
+                    </div>
                     <div class="p-6">
                         <div class="flex items-center text-white mb-4">
                             <i class="fas fa-calendar-alt mr-2"></i>
@@ -280,11 +278,11 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-12" data-aos="fade-up">
+            <!-- <div class="text-center mt-12" data-aos="fade-up">
                 <a href="gallery.html" class="px-8 py-3 bg-primary-600 text-white rounded-md font-medium hover:bg-primary-700 transition-all shadow-md">
                     View Past Events
                 </a>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -292,7 +290,7 @@
     <section id="programs" class="py-16 sm:py-24 bg-white overflow-hidden">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Mental Health Programs</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Mental Health/ Community Programs</h2>
                 <div class="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">We offer a variety of programs designed to support mental health and wellbeing in our community.</p>
             </div>
@@ -380,7 +378,39 @@
                             <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
+                </div>            
+            </div>
+            <!-- Hidden Videos section, on click to show section -->
+            <div id="events-videos-section" class="hidden mt-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+                    <!-- Video Card 1 -->
+                    <div class="rounded-lg overflow-hidden shadow-lg bg-white">
+                        <div class="video-container">
+                           <iframe src="https://www.youtube.com/embed/IHP0M-vhrbg?si=Hef55FBXnqFxsikB" loading="lazy" class="w-full h-full" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg mb-2">Event Title 1</h4>
+                            <p class="text-gray-600 text-sm">Short description of the event video.</p>
+                        </div>
+                    </div>
+                    <!-- Video Card 2 -->
+                    <div class="rounded-lg overflow-hidden shadow-lg bg-white">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/4vZGrSmgj-c?si=f7kEZYmNp78drjH-" loading="lazy" class="w-full h-full" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg mb-2">Event Title 2</h4>
+                            <p class="text-gray-600 text-sm">Another event video description.</p>
+                        </div>
+                    </div>
+                    <!-- Add more video cards as needed -->
                 </div>
+            </div>
+                <!-- Button -->
+            <div class="flex justify-center mt-12" data-aos="fade-up">
+                <a id="view-events-videos-btn" href="javascript:void(0)" class="px-8 py-3 bg-tertiary-600 text-white rounded-md font-medium hover:bg-tertiary-900 transition-all shadow-md">
+                    View Events Videos
+                </a>
             </div>
         </div>
     </section>
@@ -396,13 +426,8 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
-                    <div class="w-full rounded-lg overflow-hidden shadow-xl video-container">
-                        <iframe 
-                            src="https://drive.google.com/file/d/1rXTprk8n7Djj2sJO7e11mEUvDZ5dgCgQ/preview" 
-                            class="w-full h-full"
-                            allow="autoplay"
-                            allowfullscreen
-                        ></iframe>
+                    <div class="w-full rounded-lg overflow-hidden shadow-xl">
+                        <img src="./assets/images/approach.png" alt="Crisis Intervention" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <div data-aos="fade-left">
